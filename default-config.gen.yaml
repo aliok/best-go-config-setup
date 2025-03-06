@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=./configuration-schema.gen.json 
+features:
+  enabled_features:
+  - feature1
+  - feature2
+http_server:
+  bind_address: 0.0.0.0
+  port: 8080
+logging:
+  log_format: json
+  log_level: 2

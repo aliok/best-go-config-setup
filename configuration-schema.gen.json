@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aliok/best-go-config-setup/pkg/config",
+  "$ref": "#/$defs/Config",
+  "$defs": {
+    "Config": {
+      "properties": {
+        "http_server": {
+          "$ref": "#/$defs/HTTPServerConfig",
+          "description": "HTTPServerConfig is the configuration for the HTTP server."
+        },
+        "features": {
+          "$ref": "#/$defs/FeatureConfig",
+          "description": "FeatureConfig is the configuration for the features."
+        },
+        "logging": {
+          "$ref": "#/$defs/LoggingConfig",
+          "description": "LoggingConfig is the configuration for the logging."
+        }
+      },
+      "additionalProperties": false,
+      "type": "object",
+      "required": [
+        "http_server",
+        "features",
+        "logging"
+      ]
+    },
+    "FeatureConfig": {
+      "properties": {
+        "enabled_features": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array",
+          "description": "EnabledFeatures is the list of enabled features",
+          "default": [
+            "feature1",
+            "feature2"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "HTTPServerConfig": {
+      "properties": {
+        "port": {
+          "type": "integer",
+          "description": "Port is the port number for the HTTP server",
+          "default": 8080
+        },
+        "bind_address": {
+          "type": "string",
+          "description": "BindAddress is the address to bind to",
+          "default": "0.0.0.0"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    },
+    "LoggingConfig": {
+      "properties": {
+        "log_level": {
+          "type": "integer",
+          "description": "LogLevel is the log level for the application",
+          "default": 2
+        },
+        "log_format": {
+          "type": "string",
+          "enum": [
+            "json",
+            "pretty"
+          ],
+          "description": "LogFormat is the format of the logs. Can be `json` or `pretty`.",
+          "default": "json"
+        }
+      },
+      "additionalProperties": false,
+      "type": "object"
+    }
+  }
+}

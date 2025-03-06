@@ -1,0 +1,13 @@
+# TODO: json schema
+
+# App configuration
+# Note that this is a partial configuration.
+# Unspecified values will be filled in with defaults defined in `pkg/config.go`.
+
+http_server:
+  port: 12345
+
+features:
+  enabled_features:
+    - feature3
+    - feature4
