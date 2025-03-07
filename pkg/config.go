@@ -35,7 +35,8 @@ type FeatureConfig struct {
 
 type LoggingConfig struct {
 	// LogLevel is the log level for the application
-	LogLevel int8 `json:"log_level,omitempty" jsonschema:"default=2" validate:"required,min=-1,max=5"`
+	LogLevel *int8 `json:"log_level,omitempty" jsonschema:"default=2" validate:"required,min=-1,max=5"`
+	// field above is a pointer to distinguish between zero value and default value
 
 	// LogFormat is the format of the logs. Can be `json` or `pretty`.
 	LogFormat string `json:"log_format,omitempty" jsonschema:"default=json,enum=json,enum=pretty" validate:"required,oneof=json pretty"`
