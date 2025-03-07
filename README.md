@@ -367,6 +367,10 @@ I use [sigs.k8s.io/yaml](https://github.com/kubernetes-sigs/yaml) package for th
 1. It can marshal the struct to YAML with the struct tags of `json`, unlike the `gopkg.in/yaml.v2` package that requires separate `yaml` tags. This way, I can reuse the `json` tags for both JSON and YAML.
 2. It fixes some of the rendering/formatting issues with floats. For example the large floats are rendered in scientific notation with `gopkg.in/yaml.v2`.
 
+### 6. Best Practices
+
+See https://github.com/aliok/go-defaultz?tab=readme-ov-file#best-practices for some best practices around fields, their zero-values and defaulting them.
+
 ## Benefits of This Approach
 - **Simplified configuration management**: Users only specify what they want to change.
 - **Reduced duplication**: Defaults and validation live in a single place.
